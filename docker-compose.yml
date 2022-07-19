@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  mosquitto:
+    image: eclipse-mosquitto
+    networks:
+      - backend
+    hostname: mosquitto
+    container_name: mosquitto
+    expose:
+      - "1881"
+      - "9001"
+    ports:
+      - "1881:1881"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+  proxy:
+    networks:
+      - backend
+    depends_on:
+      - mosquitto
+    build: ./proxy
+
+networks:
+  backend:
