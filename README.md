@@ -1,2 +1,2 @@
 # qilisensors
-Code managing the data collection for the sensors in the lab
+Code managing the collection, storage and monitoring of the data coming from the sensors in the lab
