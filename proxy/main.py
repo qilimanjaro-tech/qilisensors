@@ -22,8 +22,8 @@ if __name__ == "__main__":
     
     Connected = False   #global variable for the state of the connection
     
-    broker_address= "mosquitto"  #Broker address
-    port = 1881                         #Broker port
+    broker_address= "mosquitto"           #Broker address
+    port = 1883                           #Broker port
     #user = "yourUser"                    #Connection username
     #password = "yourPassword"            #Connection password
     
