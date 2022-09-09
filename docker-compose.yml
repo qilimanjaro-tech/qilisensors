@@ -23,15 +23,6 @@ services:
     volumes:
      - influxdb-data:/var/lib/influxdb
 
-#  proxy:
-#    depends_on:
-#      - mosquitto
-#    build: ./proxy
-#    environment:
-#      - MQTT_HOST=mosquitto
-#    networks:
-#     - emeter
-
   telegraf:
     image: telegraf
     restart: always
