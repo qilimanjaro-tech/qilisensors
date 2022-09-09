@@ -1,7 +1,9 @@
-FROM python:3.9-alpine3.15
+FROM python:3.5-slim
 
 RUN pip install paho-mqtt
 
 COPY ./main.py . 
 
-ENTRYPOINT ["python","main.py"]
+RUN chmod +x /main.py
+
+CMD [ "python", "-u", "main.py" ]

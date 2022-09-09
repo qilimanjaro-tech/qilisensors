@@ -1,5 +1,6 @@
 import paho.mqtt.client as mqttClient
 import time
+import os
   
 def on_connect(client, userdata, flags, rc):
   
@@ -22,13 +23,13 @@ if __name__ == "__main__":
     
     Connected = False   #global variable for the state of the connection
     
-    broker_address= "mosquitto"           #Broker address
-    port = 1883                           #Broker port
-    #user = "yourUser"                    #Connection username
-    #password = "yourPassword"            #Connection password
+    broker_address= os.getenv("MQTT_HOST")   #Broker address
+    port = 1881                              #Broker port
+    #user = "yourUser"                       #Connection username
+    #password = "yourPassword"               #Connection password
     
     client = mqttClient.Client("Python")               #create new instance
-    #client.username_pw_set(user, password=password)    #set username and password
+    #client.username_pw_set(user, password=password)   #set username and password
     client.on_connect= on_connect                      #attach function to callback
     client.on_message= on_message                      #attach function to callback
     
